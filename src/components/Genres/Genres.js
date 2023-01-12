@@ -10,6 +10,8 @@ const Genres = ({
   type,
   setPage,
 }) => {
+  const key = 'e34d5aa9a3c941aa97ef675f7a076598';
+  
   const handleAdd = (genre) => {
     setSelectedGenres([...selectedGenres, genre]);
     setGenres(genres.filter((g) => g.id !== genre.id));
@@ -26,7 +28,7 @@ const Genres = ({
 
   const fetchGenres = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/genre/${type}/list?api_key=${process.env.e34d5aa9a3c941aa97ef675f7a076598}&language=en-US`
+      `https://api.themoviedb.org/3/genre/${type}/list?api_key=${key}&language=en-US`
     );
     setGenres(data.genres);
   };

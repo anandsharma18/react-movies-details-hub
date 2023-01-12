@@ -9,7 +9,8 @@ const handleDragStart = (e) => e.preventDefault();
 
 const Gallery = ({ id, media_type }) => {
   const [credits, setCredits] = useState([]);
-
+  const key = 'e34d5aa9a3c941aa97ef675f7a076598';
+  
   const items = credits?.map((c) => (
     <div className="carouselItem">
       <img
@@ -36,7 +37,7 @@ const Gallery = ({ id, media_type }) => {
 
   const fetchCredits = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${process.env.e34d5aa9a3c941aa97ef675f7a076598}&language=en-US`
+      `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${key}&language=en-US`
     );
     setCredits(data.cast);
   };
